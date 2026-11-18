@@ -183,6 +183,14 @@ if (args.Contains("--vc"))
         Console.WriteLine($"  {q,-55} -> {(r == null ? "-" : r.Leave ? "LEAVE" : $"channel='{r.Channel}' server='{r.Server}'")}");
     }
 }
+if (args.Contains("--riotplay"))
+{
+    var png = args[Array.IndexOf(args, "--riotplay") + 1];
+    using var bmp = new System.Drawing.Bitmap(png);
+    var sw = System.Diagnostics.Stopwatch.StartNew();
+    var p = RiotPlay.FindPlay(bmp);
+    Console.WriteLine($"  play button: {(p == null ? "not found" : $"{p.Value.X},{p.Value.Y}")} in {sw.ElapsedMilliseconds} ms (image {bmp.Width}x{bmp.Height})");
+}
 if (args.Contains("--launch"))
 {
     AppIndex.Load();
