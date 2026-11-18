@@ -55,8 +55,8 @@ public partial class App : Application
                         var sw = System.Diagnostics.Stopwatch.StartNew();
                         var a = await Ai.Ask("open the thing I play music with", AiModels.HasGraphicsCard);
                         log.AppendLine($"ai {m.Name} {sw.Elapsed.TotalSeconds:0.0}s [{string.Join("|", a.Commands)}] {a.Error}");
-                        var t = await Ai.Translate("food", "Turkish", AiModels.HasGraphicsCard);
-                        log.AppendLine($"translate food -> {t}");
+                        var t = await Ai.Translate("water", "Turkish", AiModels.HasGraphicsCard);
+                        log.AppendLine($"translate water -> {t}");
                     }
                 }
                 catch (Exception ex) { log.AppendLine("ERROR " + ex); }

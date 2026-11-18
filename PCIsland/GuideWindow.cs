@@ -31,17 +31,17 @@ public class GuideWindow : Window
             new("discord'u aç", "Same in Turkish"),
             new("close chrome", "Close an app (asks first)"),
             new("chrome'u kapat", "Same in Turkish"),
-            new("join general vc in gifs", "Opens Discord and joins that voice channel (gifs sunucusundaki general ses kanalına gir)"),
-            new("switch to opera","Bring a window to the front (operaya geç)"),
+            new("join lounge vc in study group", "Opens Discord and joins that voice channel (study group sunucusundaki lounge ses kanalına gir)"),
+            new("switch to chrome","Bring a window to the front (chrome'a geç)"),
             new("chrome left", "Snap a window to the left or right (chrome sola)"),
-            new("maximize opera", "Make a window big, or minimize it"),
+            new("maximize chrome", "Make a window big, or minimize it"),
             new("minimize all", "Show the desktop (hepsini küçült)"),
         }),
         new("Browser tabs", new Item[]
         {
             new("close tab", "Close the tab you're on (sekmeyi kapat)"),
             new("close 3 tabs", "Close several"),
-            new("close tabs on opera", "Close every tab but keep Opera open (operadaki sekmeleri kapat)"),
+            new("close tabs on chrome", "Close every tab but keep Chrome open (chrome'daki sekmeleri kapat)"),
         }, "Ctrl+Shift+T in the browser brings closed tabs back."),
         new("Files, folders and web", new Item[]
         {
@@ -90,8 +90,8 @@ public class GuideWindow : Window
         }, "Clipboard history is only kept in memory and is gone when the island restarts."),
         new("Games", new Item[]
         {
-            new("play blox fruits", "Start a Roblox game straight away (blox fruits oyna)"),
-            new("open yba", "Short names work too: yba = Your Bizarre Adventure. Found games are remembered"),
+            new("play brookhaven", "Start a Roblox game straight away (brookhaven oyna)"),
+            new("open am", "Short names work too: am = Adopt Me. Found games are remembered"),
             new("boost", "Close background apps before playing (list in Settings)"),
             new("gaming mode", "Your own shortcut: closes Chrome and Spotify, opens Discord"),
         }, "Roblox gets high priority on its own while it runs. The island hides during fullscreen games; Ctrl+Space still opens it."),
@@ -106,10 +106,10 @@ public class GuideWindow : Window
             new("open the thing I play music with", "With AI on, it figures out loose sentences like this"),
             new("open spotify and turn the volume down", "It can do a few things at once (it shows the list and asks first)"),
             new("arkadaşlarla konuştuğum uygulamayı aç", "Turkish sentences work too"),
-            new("what does food mean", "Ask a question and it answers in a few sentences (yemek ne demek)"),
+            new("what does gravity mean", "Ask a question and it answers in a few sentences (yerçekimi ne demek)"),
             new("why is the sky blue?", "Enter copies the answer. Small AIs can be wrong, so double-check important things"),
-            new("translate food to turkish", "Translate words or sentences (food'u türkçeye çevir, kitap ingilizcesi)"),
-            new("translate yemek", "No language given: Turkish goes to English, anything else to Turkish"),
+            new("translate water to turkish", "Translate words or sentences (water'ı türkçeye çevir, kitap ingilizcesi)"),
+            new("translate su", "No language given: Turkish goes to English, anything else to Turkish"),
             new("how do you say thank you in german", "Other languages work too. Without AI it opens Google Translate"),
         }, "Turn it on in Settings → AI and pick a model. It runs on your PC, is free, and only wakes up when the island doesn't understand. Answers it figured out once are remembered, so they're instant next time."),
         new("Look and settings", new Item[]
