@@ -48,13 +48,14 @@ public static class TranslateParser
             return string.Join(' ', parts);
         }
 
-        if (targetCode == "tr" && parts.Count == 1 && !Ai.IsTurkish(s))
+        if (targetCode == "tr" && parts.Count == 1)
         {
             var w = parts[0];
             foreach (var e in CaseEndings)
                 if (w.Length - e.Length >= 3 && w.EndsWith(e, StringComparison.OrdinalIgnoreCase))
                 {
                     var stem = w[..^e.Length];
+                    if (Ai.IsTurkish(stem)) continue;
                     bool vowelEnd = "aeıioöuü".Contains(char.ToLowerInvariant(stem[^1]));
                     bool needsY = e.StartsWith("y") || e.StartsWith("n");
                     if (needsY == vowelEnd) return stem;

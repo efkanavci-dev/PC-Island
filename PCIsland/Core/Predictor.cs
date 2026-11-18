@@ -17,7 +17,7 @@ public static class Predictor
         "timer", "stop timer", "sayaç", "remind me", "reminders", "battery", "ram", "cpu",
         "wifi off", "wifi on", "bluetooth off", "bluetooth on", "dark mode", "light mode",
         "screenshot", "screenshot area", "ekran görüntüsü", "note", "notes", "notlar", "clipboard",
-        "minimize all", "switch to", "boost", "play blox fruits", "close tabs", "close tab", "guide", "kılavuz", "translate", "disk"
+        "minimize all", "switch to", "boost", "play brookhaven", "close tabs", "close tab", "guide", "kılavuz", "translate", "disk"
     };
 
     static readonly string[] OpenVerbs = { "open", "start", "launch", "run" };
