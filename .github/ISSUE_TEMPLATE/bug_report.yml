@@ -1,0 +1,81 @@
+name: "🐞 Bug report"
+description: Something doesn't work the way it should
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make PC Island better! Please fill in what you can. English or Turkish is fine.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Describe the problem.
+      placeholder: "When I type 'close tabs on chrome', nothing happens."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can we make it happen again?
+      description: The exact steps or the command you typed.
+      placeholder: |
+        1. Open the island with Ctrl+Space
+        2. Type ...
+        3. ...
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: "All tabs close and Chrome stays open."
+  - type: input
+    id: version
+    attributes:
+      label: PC Island version
+      description: Shown on the Releases page you downloaded from.
+      placeholder: "1.0.0"
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows version
+      options:
+        - Windows 11
+        - Windows 10
+        - Not sure
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - Glass
+        - Black
+        - Midnight
+        - Violet
+        - Ember
+        - Light
+        - Not sure
+  - type: dropdown
+    id: ai
+    attributes:
+      label: AI model (if it's about the AI)
+      options:
+        - AI is off
+        - Tiny
+        - Fast
+        - Smart
+  - type: textarea
+    id: log
+    attributes:
+      label: Error log (optional)
+      description: |
+        If the file `%APPDATA%\PCIsland\errors.log` exists, paste its last lines here.
+        Check it first and remove anything personal.
+      render: text
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or video (optional)
+      description: |
+        Drag images here. Tip: the island hides from screenshots because of its blur,
+        so type `stream mode` in the island first to make it show up.

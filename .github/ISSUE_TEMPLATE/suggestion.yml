@@ -1,0 +1,40 @@
+name: "💡 Suggestion"
+description: An idea for a new command, feature or change
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Got an idea? Tell us! English or Turkish is fine.
+  - type: textarea
+    id: idea
+    attributes:
+      label: What's your idea?
+      placeholder: "A command that turns on night light, like 'night light on'."
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would it help?
+      placeholder: "I use it every evening and have to open Settings each time."
+  - type: textarea
+    id: examples
+    attributes:
+      label: What would you type? (optional)
+      description: Example commands in English or Turkish.
+      placeholder: |
+        night light on
+        gece ışığını aç
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part is it about?
+      options:
+        - Commands
+        - Look and themes
+        - AI
+        - Games
+        - Settings
+        - Something else

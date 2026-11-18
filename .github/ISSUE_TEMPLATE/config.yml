@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "📖 How to use PC Island"
+    url: https://github.com/efkanavci-dev/PC-Island#what-it-does
+    about: Type "guide" in the island for the full guide, or read the list of commands here first.
