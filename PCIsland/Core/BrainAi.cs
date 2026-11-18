@@ -9,6 +9,7 @@ namespace PCIsland.Core;
 public static partial class Brain
 {
     public static event Action<string> Status;
+    public static void ReportStatus(string s) => Status?.Invoke(s);
     public static string LastIcon;
     public static event Action StreamModeChanged;
     static readonly AsyncLocal<string> currentInput = new();

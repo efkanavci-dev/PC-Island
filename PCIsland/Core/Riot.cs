@@ -63,14 +63,28 @@ public static class Riot
     {
         var client = ClientPath();
         if (client == null) return null;
-        try
+        return new Deferred(async () =>
         {
-            Process.Start(new ProcessStartInfo(client, $"--launch-product={product} --launch-patchline=live")
-            { UseShellExecute = true, WorkingDirectory = Path.GetDirectoryName(client) });
-            var (app, s) = AppIndex.Find(name);
-            Brain.LastIcon = app != null && s >= 98 ? (app.IsShellApp ? "shell:AppsFolder\\" + app.Launch : app.Launch) : client;
-            return new Message($"Starting {name}");
-        }
-        catch (Exception ex) { return new Message($"Couldn't start {name}: {ex.Message}", false); }
+            try
+            {
+                var (app, s) = AppIndex.Find(name);
+                string icon = app != null && s >= 98 ? (app.IsShellApp ? "shell:AppsFolder\\" + app.Launch : app.Launch) : client;
+                if (RiotPlay.GameRunning(product))
+                {
+                    var (w, ws) = WinControl.Find(name);
+                    if (w != null && ws >= 70) WinControl.Focus(w.Handle);
+                    Brain.LastIcon = icon;
+                    return new Message($"{name} is already running");
+                }
+                Process.Start(new ProcessStartInfo(client, $"--launch-product={product} --launch-patchline=live")
+                { UseShellExecute = true, WorkingDirectory = Path.GetDirectoryName(client) });
+                Brain.ReportStatus($"Starting {name}");
+                var problem = await RiotPlay.ClickPlayWhenReady(product);
+                if (problem != null) return new Message(problem, false);
+                Brain.LastIcon = icon;
+                return new Message($"Starting {name}");
+            }
+            catch (Exception ex) { return new Message($"Couldn't start {name}: {ex.Message}", false); }
+        });
     }
 }
