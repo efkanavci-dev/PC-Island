@@ -29,6 +29,7 @@ public sealed class Tray : IDisposable
         menu.Items.Add("Open island", null, (_, _) => OpenIsland?.Invoke());
         menu.Items.Add("Settings", null, (_, _) => OpenSettings?.Invoke());
         menu.Items.Add("Guide", null, (_, _) => OpenGuide?.Invoke());
+        menu.Items.Add("Send feedback", null, (_, _) => { try { Places.Open(Feedback.Url()); } catch { } });
         var themes = new WF.ToolStripMenuItem("Theme");
         foreach (var t in Themes.All)
         {

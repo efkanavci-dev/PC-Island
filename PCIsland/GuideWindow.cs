@@ -117,6 +117,7 @@ public class GuideWindow : Window
             new("theme glass", "Change the color (tema mor). black, glass, midnight, violet, ember, light"),
             new("settings", "Open settings (ayarlar). Also: right-click the pill or the tray icon"),
             new("guide", "This guide (kılavuz)"),
+            new("feedback", "Send feedback. bug and idea open it ready for a bug or an idea (geri bildirim, hata bildir, öneri)"),
         }, "In Settings you can make your own shortcuts: give it a name and write one command per line."),
     };
 
