@@ -15,17 +15,17 @@ A floating command bar for Windows, shaped like the iPhone's Dynamic Island. Typ
 
 | Area | Examples |
 |---|---|
-| Apps and windows | `open discord`, `discord'u aç`, `close chrome`, `switch to opera`, `chrome left`, `minimize all` |
-| Browser tabs | `close tab`, `close 3 tabs`, `close tabs on opera` (keeps the browser open) |
+| Apps and windows | `open discord`, `discord'u aç`, `close chrome`, `switch to chrome`, `chrome left`, `minimize all` |
+| Browser tabs | `close tab`, `close 3 tabs`, `close tabs on chrome` (keeps the browser open) |
 | Files and web | `open downloads`, `delete old_video.mp4` (always asks first), `roblox.com`, `search how to fix wifi` |
 | Music and sound | `pause`, `next`, `volume 40`, `sesi kıs`, `mute`; the pill shows the song that's playing |
 | Screen and PC | `brightness 70`, `battery`, `ram`, `disk`, `wifi off`, `dark mode`, `screenshot`, `lock` |
 | Time | `timer 10 min`, `remind me at 9 pm to study`, `20 dakika sonra yemek ye hatırlat` |
 | Notes and more | `note buy milk`, `notes`, `clipboard`, `15*24`, `%18 of 250` |
-| Translate | `translate food to turkish`, `food türkçesi`, `how do you say thank you in german` |
-| Games | `play blox fruits`, `open yba` (finds Roblox games by name), `boost` |
-| Discord | `join general vc in gifs` |
-| AI (optional) | `open the thing I play music with`, `what does food mean?` |
+| Translate | `translate water to turkish`, `water türkçesi`, `how do you say thank you in german` |
+| Games | `play brookhaven`, `open am` (finds Roblox games by name, even short ones), `boost` |
+| Discord | `join lounge vc in study group` |
+| AI (optional) | `open the thing I play music with`, `what does gravity mean?` |
 
 Type `guide` in the island for the full guide, with a search box and examples you can click to try.
 
