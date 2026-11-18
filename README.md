@@ -68,11 +68,9 @@ Everything runs on your PC. The app goes online only when you ask for something 
 
 ## Found a bug or have an idea?
 
-- 🐞 [Report a bug](../../issues/new?template=bug_report.yml)
-- 💡 [Suggest an idea](../../issues/new?template=suggestion.yml)
-- 📋 [See all reports and ideas](../../issues)
-
-English or Turkish is fine.
+- 📝 **[Send feedback](https://docs.google.com/forms/d/1mvhIRJjtBIvhmfhnkXCd8hd8Rzgjlta29GjooV65qzM/viewform)**: a short form, no account needed. You can also type `feedback`, `bug` or `idea` in the island, or use **Send feedback** in the tray menu.
+- 🐞 [Report a bug on GitHub](../../issues/new?template=bug_report.yml)
+- 💡 [Suggest an idea on GitHub](../../issues/new?template=suggestion.yml)
 
 ## Build from source
 
