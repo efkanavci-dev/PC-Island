@@ -3,6 +3,10 @@
 A floating command bar for Windows, shaped like the iPhone's Dynamic Island. Type what you want and it happens: open apps, close tabs, change the volume, set timers, translate, join a Discord voice channel, start a Roblox game. It understands English and Turkish, and can use a small AI that runs on your own PC.
 
 <p align="center">
+  <img src="docs/pc-island-demo.gif" alt="PC Island demo: themes, calculator, AI answer, timer and help" width="800">
+</p>
+
+<p align="center">
   <img src="docs/island-idle.png" alt="The island resting at the top of the screen" width="600"><br>
   <img src="docs/island-typing.png" alt="Typing a command, with a gray guess finishing it" width="600"><br>
   <img src="docs/island-opening.png" alt="Opening an app, with its icon" width="600"><br>
