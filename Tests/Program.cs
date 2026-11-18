@@ -183,6 +183,18 @@ if (args.Contains("--vc"))
         Console.WriteLine($"  {q,-55} -> {(r == null ? "-" : r.Leave ? "LEAVE" : $"channel='{r.Channel}' server='{r.Server}'")}");
     }
 }
+if (args.Contains("--launch"))
+{
+    AppIndex.Load();
+    Console.WriteLine($"  riot client exe: {Riot.ClientPath()}");
+    foreach (var q in new[] { "valorant", "val", "lol", "league of legends", "runeterra", "discord" })
+        Console.WriteLine($"  riot product for '{q}': {Riot.Find(q)?.product ?? "-"}");
+    foreach (var q in new[] { "valorant", "riot client", "discord", "spotify", "notepad", "chrome", "steam" })
+    {
+        var (a, s) = AppIndex.Find(q);
+        Console.WriteLine($"  {q,-12} -> {a?.Name} ({s}) via {(a == null ? "-" : AppIndex.ShortcutFor(a) ?? (a.IsShellApp ? "shell:AppsFolder\\" + a.Launch : a.Launch))}");
+    }
+}
 if (args.Contains("--roblox"))
 {
     AppIndex.Load();
