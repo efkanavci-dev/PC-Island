@@ -24,6 +24,14 @@ public static partial class Brain
         if (Is(c, "guide", "kilavuz", "kullanim kilavuzu", "how to use", "tutorial", "nasil kullanilir", "user guide", "the guide", "guide me", "manual"))
             return new OpenGuide();
 
+        // ---------- feedback ----------
+        if (Is(c, "feedback", "send feedback", "give feedback", "geri bildirim", "geri bildirim gonder", "geribildirim"))
+        { Places.Open(Feedback.Url()); return new Message("Opening the feedback form"); }
+        if (Is(c, "bug", "report bug", "report a bug", "bug report", "hata bildir", "hata", "sorun bildir"))
+        { Places.Open(Feedback.Url(Feedback.Bug)); return new Message("Opening the bug report form"); }
+        if (Is(c, "idea", "suggest", "suggestion", "suggest an idea", "send idea", "oneri", "oneri gonder", "fikir"))
+        { Places.Open(Feedback.Url(Feedback.Idea)); return new Message("Opening the idea form"); }
+
         // ---------- discord voice ----------
         var vc = DiscordVc.Parse(raw);
         if (vc != null && (vc.Leave || vc.Channel.Length > 0))

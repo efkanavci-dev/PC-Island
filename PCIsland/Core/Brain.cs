@@ -99,7 +99,7 @@ public static partial class Brain
                 return new Message(string.Join(" · ", new[] { "open X", "close X", "close tab(s)", "delete X", "search X", "volume 50", "mute", "brightness 70",
                     "pause", "next", "15*24", "timer 10 min", "remind me at 9 pm to X", "battery", "ram", "wifi off", "dark mode",
                     "screenshot", "note X", "notes", "clipboard", "translate X to turkish", "disk", "minimize all", "switch to X", "X left", "boost", "play brookhaven",
-                    "theme glass", "settings", "sleep", "lock", "restart", "shutdown", "X means Y", "forget X", "guide = full guide" }
+                    "theme glass", "settings", "sleep", "lock", "restart", "shutdown", "X means Y", "forget X", "feedback", "guide = full guide" }
                     .Select(s => s.Replace(' ', ' '))));
             case Kind.Settings: return new OpenSettings();
             case Kind.Theme:
