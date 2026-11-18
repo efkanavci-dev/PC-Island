@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>PCIsland</AssemblyName>
+    <RootNamespace>PCIsland</RootNamespace>
+    <ApplicationIcon>PCIsland.ico</ApplicationIcon>
+    <Product>PC Island</Product>
+    <AssemblyTitle>PC Island</AssemblyTitle>
+    <Version>1.0.0</Version>
+    <Company>PC Island</Company>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
+    <TieredPGO>false</TieredPGO>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="9.0.0" />
+    <PackageReference Include="LLamaSharp" Version="0.30.0" />
+    <PackageReference Include="LLamaSharp.Backend.Vulkan.Windows" Version="0.30.0" />
+  </ItemGroup>
+</Project>
