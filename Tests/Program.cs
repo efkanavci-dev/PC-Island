@@ -57,16 +57,16 @@ Check("gaming mode", Kind.Open, "gaming mode");
 Check("help", Kind.Help);
 Check("start roblox", Kind.Open, "roblox");
 Check("kill discord", Kind.Close, "discord");
-Check("close tabs on opera", Kind.Tabs, "opera", amount: -1);
+Check("close tabs on chrome", Kind.Tabs, "chrome", amount: -1);
 Check("close tab", Kind.Tabs, "", amount: 1);
-Check("close tab on opera", Kind.Tabs, "opera", amount: 1);
-Check("close all opera tabs", Kind.Tabs, "opera", amount: -1);
+Check("close tab on edge", Kind.Tabs, "edge", amount: 1);
+Check("close all chrome tabs", Kind.Tabs, "chrome", amount: -1);
 Check("close 3 tabs", Kind.Tabs, "", amount: 3);
-Check("operadaki sekmeleri kapat", Kind.Tabs, "opera", amount: -1);
-Check("operanın sekmelerini kapat", Kind.Tabs, "opera", amount: -1);
+Check("chromedaki sekmeleri kapat", Kind.Tabs, "chrome", amount: -1);
+Check("edgenin sekmelerini kapat", Kind.Tabs, "edge", amount: -1);
 Check("sekmeyi kapat", Kind.Tabs, "", amount: 1);
 Check("chrome'daki tüm sekmeleri kapat", Kind.Tabs, "chrome", amount: -1);
-Check("close opera", Kind.Close, "opera");
+Check("close edge", Kind.Close, "edge");
 Check("open tablet mode", Kind.Open);
 
 void Score(string q, string c, int min)
@@ -99,7 +99,7 @@ if (args.Contains("--apps"))
     var sw = System.Diagnostics.Stopwatch.StartNew();
     AppIndex.Load();
     Console.WriteLine($"apps indexed: {AppIndex.Count} in {sw.ElapsedMilliseconds} ms");
-    foreach (var q in new[] { "discord", "chrome", "roblox", "spotify", "vs code", "notepad", "steam", "opera", "valorant", "calculator", "task manager", "settings", "terminal", "explorer", "discrod", "hesap makinesi", "not defteri", "gorev yoneticisi", "firefox", "paint", "omen" })
+    foreach (var q in new[] { "discord", "chrome", "roblox", "spotify", "vs code", "notepad", "steam", "edge", "calculator", "task manager", "settings", "terminal", "explorer", "discrod", "hesap makinesi", "not defteri", "gorev yoneticisi", "firefox", "paint", "word" })
     {
         var (a, s) = AppIndex.Find(q);
         Console.WriteLine($"  {q,-18} -> {(a == null ? "-" : a.Name),-40} {s}");
@@ -176,8 +176,8 @@ if (args.Contains("--ai-download"))
 }
 if (args.Contains("--vc"))
 {
-    foreach (var q in new[] { "open discord and join the general voice chat in gifs", "join general vc in gifs", "join the gaming voice channel", "connect to music vc on chill server",
-                              "gifs sunucusundaki general ses kanalına gir", "general sesliye katıl", "leave vc", "sesten çık", "open discord", "join discord" })
+    foreach (var q in new[] { "open discord and join the lounge voice chat in study group", "join lounge vc in study group", "join the homework voice channel", "connect to music vc on book club server",
+                              "study group sunucusundaki lounge ses kanalına gir", "lounge sesliye katıl", "leave vc", "sesten çık", "open discord", "join discord" })
     {
         var r = DiscordVc.Parse(q);
         Console.WriteLine($"  {q,-55} -> {(r == null ? "-" : r.Leave ? "LEAVE" : $"channel='{r.Channel}' server='{r.Server}'")}");
@@ -186,17 +186,17 @@ if (args.Contains("--vc"))
 if (args.Contains("--roblox"))
 {
     AppIndex.Load();
-    foreach (var q in new[] { "yba", "your bizarre adventure", "stand out", "blox fruits", "zzqqxx", "discord" })
+    foreach (var q in new[] { "am", "adopt me", "brookhaven", "zzqqxx", "discord" })
     {
         var g = await Roblox.Search(q);
         Console.WriteLine($"  {q,-24} -> {(g == null ? "-" : $"{g.Name} ({g.PlaceId}) initials={Roblox.Initials(g.Name)} match={Roblox.Matches(q, g.Name)}")}");
     }
-    var (app, s) = AppIndex.Find("yba");
-    Console.WriteLine($"  app for yba: {app?.Name} {s}");
+    var (app, s) = AppIndex.Find("am");
+    Console.WriteLine($"  app for am: {app?.Name} {s}");
 }
 if (args.Contains("--urls"))
 {
-    foreach (var u in new[] { "roblox.com", "search roblox.com", "google roblox.com", "roblox.com ara", "www.youtube.com", "open roblox.com/games/2753915549", "https://github.com", "search how to fix wifi", "notes.txt", "open discord", "go to roblox.com", "roblox.com'u aç" })
+    foreach (var u in new[] { "roblox.com", "search roblox.com", "google roblox.com", "roblox.com ara", "www.youtube.com", "open roblox.com/games/920587237", "https://github.com", "search how to fix wifi", "notes.txt", "open discord", "go to roblox.com", "roblox.com'u aç" })
     {
         var p = Parser.Parse(u);
         bool url = Places.LooksLikeUrl(p.RawTarget.Trim(), out var link);
@@ -205,11 +205,11 @@ if (args.Contains("--urls"))
 }
 if (args.Contains("--translate"))
 {
-    var cases = new[] { "foodu türkçeye çevir", "food u turkceye cevir", "foodu turkceye cevir", "appleyi türkçeye çevir", "gameı türkçeye çevir", "foodun türkçesi", "translate taxi to turkish", "kitabı ingilizceye çevir", "translate food to turkish","food'u türkçeye çevir", "food türkçesi", "food türkçesi ne", "translate yemek", "translate good morning",
+    var cases = new[] { "waterı türkçeye çevir", "water ı turkceye cevir", "waterı turkceye cevir", "appleyi türkçeye çevir", "gameı türkçeye çevir", "waterın türkçesi", "translate taxi to turkish", "kitabı ingilizceye çevir", "translate water to turkish","water'ı türkçeye çevir", "water türkçesi", "water türkçesi ne", "translate su", "translate good morning",
                         "kitap ingilizcesi", "how do you say thank you in german", "translate I love playing games to turkish", "bunu ingilizceye çevir: nasılsın", "translate", "open translate" };
     foreach (var c in cases) { var r = TranslateParser.Parse(c); Console.WriteLine($"  {c,-45} -> {(r == null ? "-" : $"'{r.Text}' to {r.Language}")}"); }
     Settings.Current.AiModel = "smart"; Settings.Current.AiEnabled = true;
-    foreach (var c in new[] { "translate food to turkish", "translate yemek", "translate I love playing games to turkish", "kitap ingilizcesi", "how do you say thank you in german",
+    foreach (var c in new[] { "translate water to turkish", "translate su", "translate I love playing games to turkish", "kitap ingilizcesi", "how do you say thank you in german",
                               "bunu ingilizceye çevir: nasılsın", "translate I didn't finish my homework yet", "translate yarın maça gidiyoruz", "translate where is the library to turkish", "translate apple" })
     {
         var r = TranslateParser.Parse(c);
@@ -220,10 +220,10 @@ if (args.Contains("--translate"))
 }
 if (args.Contains("--ask"))
 {
-    foreach (var q in new[] { "what does food mean", "yemek ne demek", "why is the sky blue?", "türkiye'nin başkenti neresidir", "who made minecraft", "can you open spotify?", "open discord", "how much ram", "is my pc full", "how do I take a screenshot" })
+    foreach (var q in new[] { "what does gravity mean", "yerçekimi ne demek", "why is the sky blue?", "türkiye'nin başkenti neresidir", "who made minecraft", "can you open spotify?", "open discord", "how much ram", "is my pc full", "how do I take a screenshot" })
         Console.WriteLine($"  question? {Ai.IsQuestion(q),-5} {q}");
     Settings.Current.AiModel = "smart"; Settings.Current.AiEnabled = true;
-    foreach (var q in new[] { "what does food mean", "yemek ne demek", "why is the sky blue?", "türkiye'nin başkenti neresidir", "who made minecraft" })
+    foreach (var q in new[] { "what does gravity mean", "yerçekimi ne demek", "why is the sky blue?", "türkiye'nin başkenti neresidir", "who made minecraft" })
     {
         var sw = System.Diagnostics.Stopwatch.StartNew();
         var a = await Ai.Answer(q, true);
@@ -304,7 +304,7 @@ if (args.Contains("--extras"))
     Console.WriteLine($"  dark mode {SystemTools.IsDarkMode()}");
     var np = await Media.Current(); Console.WriteLine($"  now playing: {np}");
     Console.WriteLine("  windows: " + string.Join(", ", WinControl.Windows().Select(w => w.Display).Distinct().Take(8)));
-    foreach (var e in new[] { "pause", "sonraki şarkı", "battery", "ram", "wifi off", "bluetooth aç", "dark mode", "screenshot", "ss", "note buy milk", "süt al diye not al", "not defteri aç", "notes", "clipboard", "minimize all", "switch to opera", "operaya geç", "chrome left", "opera'yı sola", "maximize opera", "play blox fruits", "boost", "reminders", "timer", "stop timer", "open yba" })
+    foreach (var e in new[] { "pause", "sonraki şarkı", "battery", "ram", "wifi off", "bluetooth aç", "dark mode", "screenshot", "ss", "note buy milk", "süt al diye not al", "not defteri aç", "notes", "clipboard", "minimize all", "switch to chrome", "chrome'a geç", "chrome left", "edge'i sola", "maximize edge", "play brookhaven", "boost", "reminders", "timer", "stop timer", "open am" })
     {
         var p = Parser.Parse(e);
         Console.WriteLine($"  '{e}' -> parser {p.Kind}");
