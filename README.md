@@ -66,6 +66,14 @@ Requires Windows 10 or 11 (64-bit). Nothing else needs to be installed.
 
 Everything runs on your PC. The app goes online only when you ask for something online: opening websites, Roblox game search, downloading an AI model, or Google Translate when AI is off. Settings, notes and history are stored in `%APPDATA%\PCIsland`; AI models in `%LOCALAPPDATA%\PCIsland\models`. Clipboard history is kept in memory only.
 
+## Found a bug or have an idea?
+
+- 🐞 [Report a bug](../../issues/new?template=bug_report.yml)
+- 💡 [Suggest an idea](../../issues/new?template=suggestion.yml)
+- 📋 [See all reports and ideas](../../issues)
+
+English or Turkish is fine.
+
 ## Build from source
 
 Needs the [.NET 10 SDK](https://dotnet.microsoft.com/download).
