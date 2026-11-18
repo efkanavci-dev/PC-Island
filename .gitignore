@@ -1,0 +1,14 @@
+# build output
+bin/
+obj/
+publish*/
+*.user
+.vs/
+.vscode/
+
+# local test output
+*.log
+TestResults/
+
+# models are downloaded at runtime, never commit them
+*.gguf
