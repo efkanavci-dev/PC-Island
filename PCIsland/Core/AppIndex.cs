@@ -42,7 +42,7 @@ public static class AppIndex
         ["Settings"] = new[] { "windows settings", "windows ayarlari" },
         ["SteelSeries GG"] = new[] { "steelseries", "sonar", "gg" },
         ["OMEN Gaming Hub"] = new[] { "omen" },
-        ["Riot Client"] = new[] { "riot", "valorant launcher" },
+        ["Riot Client"] = new[] { "riot" },
         ["Roblox Player"] = new[] { "roblox" },
         ["Notepad++"] = new[] { "notepad plus", "npp" },
     };
@@ -63,6 +63,7 @@ public static class AppIndex
             .Select(a => a with { Aliases = KnownAliases.TryGetValue(a.Name, out var al) ? al : a.Aliases })
             .ToList();
         lock (gate) apps = dedup;
+        startMenuLinks = null;
     }
 
     static List<AppEntry> ReadAppsFolder()
@@ -148,9 +149,37 @@ public static class AppIndex
         return (best, bestScore);
     }
 
+    static Dictionary<string, string> startMenuLinks;
+
+    static Dictionary<string, string> StartMenuLinks()
+    {
+        if (startMenuLinks != null) return startMenuLinks;
+        var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var root in new[]
+        {
+            Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu),
+            Environment.GetFolderPath(Environment.SpecialFolder.StartMenu)
+        })
+        {
+            try
+            {
+                foreach (var lnk in Directory.EnumerateFiles(root, "*.lnk", new EnumerationOptions { RecurseSubdirectories = true, IgnoreInaccessible = true }))
+                    map.TryAdd(Path.GetFileNameWithoutExtension(lnk).Trim(), lnk);
+            }
+            catch { }
+        }
+        return startMenuLinks = map;
+    }
+
+    public static string ShortcutFor(AppEntry app) =>
+        app.IsShellApp && StartMenuLinks().TryGetValue(app.Name.Trim(), out var lnk) && File.Exists(lnk) ? lnk : null;
+
     public static void Launch(AppEntry app)
     {
-        if (app.IsShellApp)
+        var lnk = ShortcutFor(app);
+        if (lnk != null)
+            Process.Start(new ProcessStartInfo(lnk) { UseShellExecute = true });
+        else if (app.IsShellApp)
             Process.Start(new ProcessStartInfo("explorer.exe", "shell:AppsFolder\\" + app.Launch) { UseShellExecute = true });
         else
             Process.Start(new ProcessStartInfo(app.Launch) { UseShellExecute = true, WorkingDirectory = Path.GetDirectoryName(app.Launch) });

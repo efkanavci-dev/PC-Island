@@ -224,6 +224,7 @@ public static partial class Brain
 
         if (intent.Scope == Scope.Any)
         {
+            if (Riot.Find(q) is { } riot && Riot.Launch(riot.product, riot.name) is { } started) return started;
             var (game, gs) = Games.Find(q);
             if (game != null && gs >= 100) return LaunchGame(game);
         }
